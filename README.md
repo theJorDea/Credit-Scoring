@@ -79,7 +79,7 @@ $$
 \mathrm{billtrend} = \frac{B_1 - B_6}{L},
 $$
 
-плюс статистики просрочек за 6 месяцев: `max_delay` $= \max_i D_i$, `mean_delay` $= \bar{D}$, `n_delays` $= \#\{i : D_i > 0\}$.
+плюс статистики просрочек за 6 месяцев: `max_delay` $= \max_i D_i$, `mean_delay` $= \bar{D}$, `n_delays` — число месяцев с $D_i > 0$.
 
 По SHAP `max_delay` и `utilization` вошли в топ-3 признаков модели — ручная инженерия дала реальный прирост.
 
