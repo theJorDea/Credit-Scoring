@@ -71,15 +71,15 @@ $$
 
 ### 3. Инженерия признаков (`features.py`)
 
-Производные признаки с понятной кредитной логикой:
+Производные признаки с понятной кредитной логикой (обозначим лимит $L$, счета $B_1,\dots,B_6$, платежи $P_1,\dots,P_6$, статусы просрочки $D_1,\dots,D_6$):
 
 $$
-\text{utilization} = \frac{\overline{\mathrm{BILL}}}{\mathrm{LIMIT\_BAL}}, \qquad
-\text{pay\_ratio} = \frac{\overline{\mathrm{PAY\_AMT}}}{\max(\overline{\mathrm{BILL}}, 0) + 1}, \qquad
-\text{bill\_trend} = \frac{\mathrm{BILL}_1 - \mathrm{BILL}_6}{\mathrm{LIMIT\_BAL}},
+\mathrm{utilization} = \frac{\bar{B}}{L}, \qquad
+\mathrm{payratio} = \frac{\bar{P}}{\max(\bar{B}, 0) + 1}, \qquad
+\mathrm{billtrend} = \frac{B_1 - B_6}{L},
 $$
 
-плюс статистики просрочек за 6 месяцев: $\text{max\_delay} = \max_i \mathrm{PAY}_i$, $\text{mean\_delay}$, $\text{n\_delays} = \#\{i : \mathrm{PAY}_i > 0\}$.
+плюс статистики просрочек за 6 месяцев: `max_delay` $= \max_i D_i$, `mean_delay` $= \bar{D}$, `n_delays` $= \#\{i : D_i > 0\}$.
 
 По SHAP `max_delay` и `utilization` вошли в топ-3 признаков модели — ручная инженерия дала реальный прирост.
 
